@@ -8,7 +8,6 @@ import InfoPanel from './InfoPanel';
 import TransitionEffect from './TransitionEffect';
 import panoramaLocations from './panoramaData';
 import Container from './Container';
-// import Container from './Container';
 import PanoramaView from './PanoramaView';
 import BottomBar from './BottomBar';
 
@@ -35,14 +34,17 @@ export default function Panorama(props) {
   // Get current location data
   const currentLocation = locations.find(location => location.id === currentLocationId) || locations[0];
 
+  // Hide Pannellum default controls
   useEffect(() => {
-    // Hide Pannellum default controls
     const controlsContainer = document.querySelector('.pnlm-controls-container');
     if (controlsContainer) {
       controlsContainer.style.display = 'none';
     }
 
-    // Simulate loading progress
+  }, []);
+
+  // Simulate loading progress
+  useEffect(() => {
     let progress = 0;
     const loadingInterval = setInterval(() => {
       progress += 5;
@@ -72,18 +74,18 @@ export default function Panorama(props) {
     }
   }, [currentLocationId, isLoading, currentLocation]);
 
-  // useEffect(() => {
-  //   // Add a global hotspot click handler for debugging
-  //   window.handlePanoramaHotspotClick = (hotspotId) => {
-  //     console.log('Global hotspot handler called with:', hotspotId);
-  //     handleHotspotClick(hotspotId);
-  //   };
+  useEffect(() => {
+    // Add a global hotspot click handler for debugging
+    window.handlePanoramaHotspotClick = (hotspotId) => {
+      console.log('Global hotspot handler called with:', hotspotId);
+      handleHotspotClick(hotspotId);
+    };
 
-  //   return () => {
-  //     // Clean up the global handler when component unmounts
-  //     delete window.handlePanoramaHotspotClick;
-  //   };
-  // }, []);
+    return () => {
+      // Clean up the global handler when component unmounts
+      delete window.handlePanoramaHotspotClick;
+    };
+  }, []);
 
   const handleHotspotClick = (hotspotId) => {
     try {
