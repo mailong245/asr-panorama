@@ -15,6 +15,7 @@ import HomePage from 'containers/HomePage/Loadable';
 import PanoramaView from 'containers/PanoramaView/Loadable';
 import FeaturePage from 'containers/FeaturePage/Loadable';
 import NotFoundPage from 'containers/NotFoundPage/Loadable';
+import PanoramaAdmin from 'containers/PanoramaAdmin/Loadable';
 import Header from 'components/Header';
 import Footer from 'components/Footer';
 
@@ -43,6 +44,7 @@ export default function App() {
         <Route exact path="/" component={PanoramaView} />
         <Route path="/features" component={FeaturePage} />
         <Route path="" component={NotFoundPage} />
+        <Route path="/panorama-admin" element={<PanoramaAdmin />} />
       </Switch>
       {/* <Footer /> */}
       <GlobalStyle />

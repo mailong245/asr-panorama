@@ -45,7 +45,7 @@ export function PanoramaView({
       <div>
         <h1>Panorama View</h1>
         <p>This is the panorama view</p>
-        <Panorama imgLink = "https://images.unsplash.com/photo-1557971370-e7298ee473fb?q=80&w=1160&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" />
+        <Panorama />
       </div>
     </article>
   );
