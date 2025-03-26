@@ -10,6 +10,10 @@ import panoramaLocations from './panoramaData';
 import Container from './Container';
 import PanoramaView from './PanoramaView';
 import BottomBar from './BottomBar';
+import PanoramaData from '../../../data/PanoramaData.json'; // Adjust the path as necessary
+
+// Now you can use PanoramaData directly
+console.log(PanoramaData);
 
 export default function Panorama(props) {
   Panorama.propTypes = {
@@ -29,7 +33,7 @@ export default function Panorama(props) {
   const [activeHotspotId, setActiveHotspotId] = useState(null);
 
   // Use provided data or default panoramaLocations
-  const locations = props.panoramaData || panoramaLocations;
+  const locations = props.panoramaData || PanoramaData;
 
   // Get current location data
   const currentLocation = locations.find(location => location.id === currentLocationId) || locations[0];
